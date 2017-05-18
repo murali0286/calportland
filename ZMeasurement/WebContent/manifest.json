@@ -1,0 +1,80 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "calportland",
+    "type": "application",
+    "title": "SAPUI5 Smart Controls",
+    "description": "Measurement Document",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "ach": "CA-UI5-FST",
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENT",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "test/service/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5"
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": "calportland.views.App",
+    "handleValidation": true,
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.comp": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "preload" : true
+        }
+      }
+    },
+    "routing" : {
+      "config" : {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "calportland.views",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "flip",
+        "greedy" : false,
+        "bypassed": {
+          "target": "notFound"
+        }
+      },
+      "routes" : [
+        {
+          "pattern": "",
+          "name": "appHome",
+          "target": "main"
+        }
+      ],
+      "targets" : {
+        "main": {
+          "viewName": "Main",
+          "viewLevel": 2
+        },
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFound"
+        }
+      }
+    }
+  }
+}
