@@ -37,7 +37,7 @@ sap.ui.define([
             console.log(this._oViewModel.getData());
             var oSaveButton = this.getView().byId("Save") || this.byId("Save");
             var oDoc = this._validateFormAndCreateDocumentObject();
-            if(oDoc) {
+            if (oDoc) {
                 this.createMeasurementDocs(oDoc);
             } else {
                 MessageToast.show("Please correct the highlighted error and try again");
@@ -157,7 +157,7 @@ sap.ui.define([
          * @returns {boolean}
          * @private
          */
-        _validateFormAndCreateDocumentObject : function(oDoc){
+        _validateFormAndCreateDocumentObject: function (oDoc) {
             var oDoc = this._getDefaultMeasurementData();
             var oCurrentData = this._oViewModel.getProperty("/CurrentData");
             var oEquipmentNumber = this.getView().byId("EquipmentDetails") || this.byId("EquipmentDetails");
@@ -169,7 +169,7 @@ sap.ui.define([
             //Set Measurement ID
             oDoc.MeasurementPointId = oCurrentData.MeasurementPointId;
             //Validate Equipment Number
-            if(oCurrentData.EquipmentId) {
+            if (oCurrentData.EquipmentId) {
                 oDoc.EquipmentId = oCurrentData.EquipmentId;
                 oEquipmentNumber.setValueState("Success");
             } else {
@@ -179,7 +179,7 @@ sap.ui.define([
                 isFormValid = false;
             }
             // Validate Reading Value
-            if(oCurrentData.ReadingValue) {
+            if (oCurrentData.ReadingValue) {
                 oDoc.Value = oCurrentData.ReadingValue;
                 oReadingValue.setValueState("Success");
             } else {
@@ -189,7 +189,7 @@ sap.ui.define([
                 isFormValid = false;
             }
             //Validate Reading Date
-            if(oCurrentData.ReadingDate && Date.parse(oCurrentData.ReadingDate)) {
+            if (oCurrentData.ReadingDate && Date.parse(oCurrentData.ReadingDate)) {
                 oDoc.MeasurementDate = oCurrentData.ReadingDate;
                 oReadingDate.setValueState("Success");
             } else {
@@ -199,7 +199,7 @@ sap.ui.define([
                 isFormValid = false;
             }
             //Validate Reading Time
-            if(oCurrentData.ReadingTime && Date.parse(oCurrentData.ReadingTime)) {
+            if (oCurrentData.ReadingTime && Date.parse(oCurrentData.ReadingTime)) {
                 // oDoc.MeasurementDate = oCurrentData.ReadingDate;
                 oReadingTime.setValueState("Success");
             } else {
@@ -211,7 +211,11 @@ sap.ui.define([
 
             return isFormValid ? oDoc : isFormValid;
         },
-        _resetForm : function(){
+        /**
+         * Method to reset the form once the data has been saved
+         * @private
+         */
+        _resetForm: function () {
             var oEquipmentNumber = this.getView().byId("EquipmentDetails") || this.byId("EquipmentDetails");
             var oReadingValue = this.getView().byId("ReadingValue") || this.byId("ReadingValue");
             var oReadingDate = this.getView().byId("ReadingDate") || this.byId("ReadingDate");
@@ -232,6 +236,11 @@ sap.ui.define([
 
             oSaveButton.setEnabled(true);
         },
+        /**
+         * Method to get the default form data
+         * @returns {{ReadingDate: Date, ReadingTime: Date, ReadingType: string, EquipmentId: string, ReadingValue: number, MeasurementPointId: string}}
+         * @private
+         */
         _getDefaultMeasurementData: function () {
             var oDate = new Date();
             return {
