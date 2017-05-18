@@ -35,44 +35,9 @@ sap.ui.define([
 
         onSave: function (oEvent) {
             console.log(this._oViewModel.getData());
-            var oCurrentData = this._oViewModel.getProperty("/CurrentData");
-            var oEquipmentNumber = this.getView().byId("EquipmentDetails") || this.byId("EquipmentDetails");
-            var oReadingValue = this.getView().byId("ReadingValue") || this.byId("ReadingValue");
-            var oReadingDate = this.getView().byId("ReadingDate") || this.byId("ReadingDate");
             var oSaveButton = this.getView().byId("Save") || this.byId("Save");
-            var isFormValid = true;
-
-            var oDoc = this._getDefaultMeasurementData();
-            oDoc.MeasurementPointId = oCurrentData.MeasurementPointId;
-            //Validate Equipment Number
-            if(oCurrentData.EquipmentId) {
-                oDoc.EquipmentId = oCurrentData.EquipmentId
-            } else {
-                oEquipmentNumber.setValueState("Error");
-                oEquipmentNumber.setValueStateText("Please select any one equipment from the list of suggested equipments");
-                oEquipmentNumber.focus();
-                isFormValid = false;
-            }
-            // Validate Reading Value
-            if(oCurrentData.ReadingValue) {
-                oDoc.Value = oCurrentData.ReadingValue;
-            } else {
-                oReadingValue.setValueState("Error");
-                oReadingValue.setValueStateText("Please enter a numberic value greater than 0");
-                oReadingValue.focus();
-                isFormValid = false;
-            }
-            //Validate Reading Time
-            if(oCurrentData.ReadingDate && Date.parse(oCurrentData.ReadingDate)) {
-                oDoc.MeasurementDate = oCurrentData.ReadingDate;
-            } else {
-                oReadingDate.setValueState("Error");
-                oReadingDate.setValueStateText("Please enter a valid Date & Time");
-                oReadingDate.focus();
-                isFormValid = false;
-            }
-
-            if(isFormValid) {
+            var oDoc = this._validateFormAndCreateDocumentObject();
+            if(oDoc) {
                 this.createMeasurementDocs(oDoc);
             } else {
                 MessageToast.show("Please correct the highlighted error and try again");
@@ -186,11 +151,71 @@ sap.ui.define([
                 }
             })
         },
+        /**
+         * This method returns either a document object or a boolean which is set to false
+         * @param oDoc
+         * @returns {boolean}
+         * @private
+         */
+        _validateFormAndCreateDocumentObject : function(oDoc){
+            var oDoc = this._getDefaultMeasurementData();
+            var oCurrentData = this._oViewModel.getProperty("/CurrentData");
+            var oEquipmentNumber = this.getView().byId("EquipmentDetails") || this.byId("EquipmentDetails");
+            var oReadingValue = this.getView().byId("ReadingValue") || this.byId("ReadingValue");
+            var oReadingDate = this.getView().byId("ReadingDate") || this.byId("ReadingDate");
+            var oReadingTime = this.getView().byId("ReadingTime") || this.byId("ReadingTime");
+            var isFormValid = true;
+
+            //Set Measurement ID
+            oDoc.MeasurementPointId = oCurrentData.MeasurementPointId;
+            //Validate Equipment Number
+            if(oCurrentData.EquipmentId) {
+                oDoc.EquipmentId = oCurrentData.EquipmentId;
+                oEquipmentNumber.setValueState("Success");
+            } else {
+                oEquipmentNumber.setValueState("Error");
+                oEquipmentNumber.setValueStateText("Please select any one equipment from the list of suggested equipments");
+                oEquipmentNumber.focus();
+                isFormValid = false;
+            }
+            // Validate Reading Value
+            if(oCurrentData.ReadingValue) {
+                oDoc.Value = oCurrentData.ReadingValue;
+                oReadingValue.setValueState("Success");
+            } else {
+                oReadingValue.setValueState("Error");
+                oReadingValue.setValueStateText("Please enter a numberic value greater than 0");
+                oReadingValue.focus();
+                isFormValid = false;
+            }
+            //Validate Reading Date
+            if(oCurrentData.ReadingDate && Date.parse(oCurrentData.ReadingDate)) {
+                oDoc.MeasurementDate = oCurrentData.ReadingDate;
+                oReadingDate.setValueState("Success");
+            } else {
+                oReadingDate.setValueState("Error");
+                oReadingDate.setValueStateText("Please enter a valid Date & Time");
+                oReadingDate.focus();
+                isFormValid = false;
+            }
+            //Validate Reading Time
+            if(oCurrentData.ReadingTime && Date.parse(oCurrentData.ReadingTime)) {
+                // oDoc.MeasurementDate = oCurrentData.ReadingDate;
+                oReadingTime.setValueState("Success");
+            } else {
+                oReadingTime.setValueState("Error");
+                oReadingTime.setValueStateText("Please enter a valid Date & Time");
+                oReadingTime.focus();
+                isFormValid = false;
+            }
+
+            return isFormValid ? oDoc : isFormValid;
+        },
         _resetForm : function(){
             var oEquipmentNumber = this.getView().byId("EquipmentDetails") || this.byId("EquipmentDetails");
             var oReadingValue = this.getView().byId("ReadingValue") || this.byId("ReadingValue");
             var oReadingDate = this.getView().byId("ReadingDate") || this.byId("ReadingDate");
-            var oReadingTime = this.getView().byId("oReadingTime") || this.byId("oReadingTime");
+            var oReadingTime = this.getView().byId("ReadingTime") || this.byId("ReadingTime");
             var oSaveButton = this.getView().byId("Save") || this.byId("Save");
 
             oEquipmentNumber.setValueState("None");
