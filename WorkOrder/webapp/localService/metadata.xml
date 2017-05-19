@@ -1,0 +1,35 @@
+<edmx:Edmx
+        xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+        <Schema
+                xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+                xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="NorthwindModel">
+            <EntityType Name="Order">
+                <Key>
+                    <PropertyRef Name="OrderID"/>
+                </Key>
+                <Property
+                        xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="OrderID"
+                        Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity"/>
+                <Property Name="EquipmentNumber" Type="Edm.Int32" Nullable="true" Unicode="true"
+                          FixedLength="false"/>
+                <Property Name="WorkCenterPlant" Type="Edm.String" Nullable="true"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="true"/>
+                <Property Name="ActivityType" Type="Edm.String" Nullable="true"/>
+                <Property Name="Priority" Type="Edm.String" Nullable="true"/>
+            </EntityType>
+        </Schema>
+        <Schema
+                xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+                xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ODataWeb.Northwind.Model">
+            <EntityContainer
+                    xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="NorthwindEntities"
+                    p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Orders" EntityType="NorthwindModel.Order"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
