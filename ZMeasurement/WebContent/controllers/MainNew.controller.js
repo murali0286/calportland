@@ -244,12 +244,12 @@ sap.ui.define([
         _getDefaultMeasurementData: function () {
             var oDate = new Date();
             return {
-                ReadingDate: oDate,
-                ReadingTime: oDate,
-                ReadingType: "Odometer",
-                EquipmentId: "",
-                ReadingValue: 0,
-                MeasurementPointId: ""
+                GasStation: "",
+                FuelType : "",
+                EquipmentNumber: "",
+                Quantity: 0,
+                DateTime: oDate,
+                MeasurementPointId : "" //Backend data
             }
         },
         _getMeasurementDocsDTO: function () {

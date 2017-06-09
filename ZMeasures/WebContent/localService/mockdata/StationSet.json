@@ -1,0 +1,155 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('001')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('001')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "001",
+			"Plant": "051T",
+			"Storage": "4001",
+			"Text": "Mock Station 1",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('001')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('002')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('002')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "002",
+			"Plant": "051T",
+			"Storage": "4002",
+			"Text": "Mock Station 2",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('002')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('003')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('003')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "003",
+			"Plant": "101R",
+			"Storage": "4001",
+			"Text": "Mock Station 3",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('003')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('004')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('004')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "004",
+			"Plant": "111R",
+			"Storage": "4001",
+			"Text": "Mock Station 4",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('004')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('005')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('005')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "005",
+			"Plant": "111R",
+			"Storage": "4002",
+			"Text": "Mock Station 5",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('005')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('006')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('006')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "006",
+			"Plant": "111R",
+			"Storage": "4011",
+			"Text": "Mock Station 6",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('006')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('007')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('007')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "007",
+			"Plant": "113R",
+			"Storage": "4001",
+			"Text": "Mock Station 7",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('007')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('008')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('008')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "008",
+			"Plant": "113R",
+			"Storage": "4002",
+			"Text": "Mock Station 8",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('008')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('009')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('009')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "009",
+			"Plant": "113R",
+			"Storage": "4011",
+			"Text": "Mock Station 9",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('009')/StationToFuel"
+				}
+			}
+		}, {
+			"__metadata": {
+				"id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('010')",
+				"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('010')",
+				"type": "Z_MEASUREMENT_DOCUMENT.Station"
+			},
+			"Stations": "010",
+			"Plant": "115R",
+			"Storage": "4001",
+			"Text": "Mock Station 10",
+			"StationToFuel": {
+				"__deferred": {
+					"uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/StationSet('010')/StationToFuel"
+				}
+			}
+		}]
+	}
+}

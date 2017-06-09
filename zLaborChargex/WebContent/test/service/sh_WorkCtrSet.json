@@ -1,0 +1,41 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPAI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPAI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Arbpl": "TPAI",
+			"Ktext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "1000"
+		},{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPBI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPBI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Arbpl": "TPBI",
+			"Ktext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "1000"
+		},{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPCI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPCI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Arbpl": "TPCI",
+			"Ktext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "2000"
+		},{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPDI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TPDI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Arbpl": "TPDI",
+			"Ktext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "2100"
+		}]
+	}
+}

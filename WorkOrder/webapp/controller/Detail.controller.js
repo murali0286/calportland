@@ -63,8 +63,8 @@ sap.ui.define([
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
 				this.getModel().metadataLoaded().then( function() {
-					var sObjectPath = this.getModel().createKey("Orders", {
-						OrderID :  sObjectId
+					var sObjectPath = this.getModel().createKey("PlantMaintOrders", {
+						OrderId :  sObjectId
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));

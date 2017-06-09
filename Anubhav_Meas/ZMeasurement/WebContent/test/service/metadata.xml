@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_MEASUREMENT_DOCUMENT" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="PMOperation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrderId" />
+                    <PropertyRef Name="OperationId" />
+                </Key>
+                <Property Name="OrderId" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" />
+                <Property Name="OperationId" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Oper./Act." />
+                <Property Name="ControlKeyId" Type="Edm.String" MaxLength="4" sap:label="Control key" />
+                <Property Name="WorkCenterId" Type="Edm.String" MaxLength="8" sap:label="Work center" />
+                <Property Name="PlantId" Type="Edm.String" MaxLength="4" sap:label="Plant" />
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Opr. short text" />
+                <Property Name="StdTextKeyId" Type="Edm.String" MaxLength="11" sap:label="Std text key" />
+                <Property Name="CompleteIndicator" Type="Edm.String" MaxLength="1" sap:label="No Remain. Work" />
+                <Property Name="ActualWorkHours" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Actual work" />
+                <Property Name="SystemCondKey" Type="Edm.String" MaxLength="1" sap:label="SystemCondition" />
+                <NavigationProperty Name="GoodsMovements" Relationship="Z_MEASUREMENT_DOCUMENT.Operation_GoodsMovements" FromRole="FromRole_Operation_GoodsMovements" ToRole="ToRole_Operation_GoodsMovements" />
+                <NavigationProperty Name="Confirmations" Relationship="Z_MEASUREMENT_DOCUMENT.Operation_Confirmations" FromRole="FromRole_Operation_Confirmations" ToRole="ToRole_Operation_Confirmations" />
+                <NavigationProperty Name="PlantMaintOrder" Relationship="Z_MEASUREMENT_DOCUMENT.PMOperation_PlantMaintOrder" FromRole="FromRole_PMOperation_PlantMaintOrder" ToRole="ToRole_PMOperation_PlantMaintOrder" />
+            </EntityType>
+            <EntityType Name="Confirmation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ConfirmationId" />
+                    <PropertyRef Name="ConfirmationCounter" />
+                </Key>
+                <Property Name="ConfirmationId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Confirmation" />
+                <Property Name="ConfirmationCounter" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Counter" />
+                <Property Name="OrderId" Type="Edm.String" MaxLength="12" sap:label="Order" />
+                <Property Name="OperationId" Type="Edm.String" MaxLength="4" sap:label="Oper./Act." />
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="Created by" />
+                <Property Name="CreatedOn" Type="Edm.DateTime" Precision="0" sap:label="Created On" />
+                <Property Name="ReversedFlag" Type="Edm.String" MaxLength="1" sap:label="Reversed" />
+                <Property Name="FinalConfirmationFlag" Type="Edm.String" MaxLength="1" sap:label="Final Confirmtn" />
+                <Property Name="CompleteIndicator" Type="Edm.String" MaxLength="1" sap:label="No Remain. Work" />
+                <Property Name="ClearOpenReservations" Type="Edm.String" MaxLength="1" sap:label="Clear Open Res." />
+                <Property Name="PostingDate" Type="Edm.DateTime" Precision="0" sap:label="Posting date" />
+                <Property Name="ConfirmationText" Type="Edm.String" MaxLength="2000" sap:label="Char. 2000" />
+                <Property Name="PlantId" Type="Edm.String" MaxLength="4" sap:label="Plant" />
+                <Property Name="WorkCenterId" Type="Edm.String" MaxLength="8" sap:label="Work center" />
+                <Property Name="CostCenterId" Type="Edm.String" MaxLength="10" sap:label="Cost Center" />
+                <Property Name="ActualWork" Type="Edm.Decimal" Precision="7" Scale="1" sap:label="Actual work" />
+                <Property Name="UomId" Type="Edm.String" MaxLength="3" sap:label="Unit for work" sap:semantics="unit-of-measure" />
+                <Property Name="ActualDuration" Type="Edm.Decimal" Precision="5" Scale="1" sap:label="Actual Duration" />
+                <Property Name="StartDate" Type="Edm.DateTime" Precision="0" sap:label="Execution start" />
+                <Property Name="FinishDate" Type="Edm.DateTime" Precision="0" sap:label="Finish execut." />
+                <Property Name="StartTime" Type="Edm.String" />
+                <Property Name="FinishTime" Type="Edm.String" />
+                <Property Name="PersonnelId" Type="Edm.String" MaxLength="8" sap:label="Personnel no." />
+                <Property Name="PersonnelName" Type="Edm.String" MaxLength="40" sap:label="Employee(s)" />
+                <Property Name="ActivityTypeId" Type="Edm.String" MaxLength="6" sap:label="Activity Type" />
+                <NavigationProperty Name="PMOperation" Relationship="Z_MEASUREMENT_DOCUMENT.Confirmation_Operation" FromRole="FromRole_Confirmation_Operation" ToRole="ToRole_Confirmation_Operation" />
+            </EntityType>
+            <EntityType Name="GoodsMovement" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ReservationId" />
+                    <PropertyRef Name="ReservationItem" />
+                </Key>
+                <Property Name="ReservationId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Reservation" />
+                <Property Name="ReservationItem" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Item" />
+                <Property Name="ReservationTypeId" Type="Edm.String" MaxLength="1" sap:label="Record type" />
+                <Property Name="OrderId" Type="Edm.String" MaxLength="12" sap:label="Order" />
+                <Property Name="OperationId" Type="Edm.String" MaxLength="4" sap:label="Oper./Act." />
+                <Property Name="MaterialId" Type="Edm.String" MaxLength="18" sap:label="Material" />
+                <Property Name="PlantId" Type="Edm.String" MaxLength="4" sap:label="Plant" />
+                <Property Name="ItemCategory" Type="Edm.String" MaxLength="1" sap:label="Item Category" />
+                <Property Name="StorageLocationId" Type="Edm.String" MaxLength="4" sap:label="Stor. Location" />
+                <Property Name="BackflushIndicator" Type="Edm.String" MaxLength="1" sap:label="Backflush" />
+                <Property Name="Qty" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Requirement qty" />
+                <Property Name="UomId" Type="Edm.String" MaxLength="3" sap:label="Base Unit" sap:semantics="unit-of-measure" />
+            </EntityType>
+            <EntityType Name="PlantMaintOrder" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrderId" />
+                </Key>
+                <Property Name="OrderId" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Order" />
+                <Property Name="OrderTypeId" Type="Edm.String" MaxLength="4" sap:label="Order Type" />
+                <Property Name="PlanningPlantId" Type="Edm.String" MaxLength="4" sap:label="Planning plant" />
+                <Property Name="WorkCenterId" Type="Edm.String" MaxLength="8" sap:label="Main WorkCtr" />
+                <Property Name="PlantId" Type="Edm.String" MaxLength="4" sap:label="Plnt WorkCenter" />
+                <Property Name="PlannerGroupId" Type="Edm.String" MaxLength="3" sap:label="Planner group" />
+                <Property Name="FuncLocationId" Type="Edm.String" MaxLength="40" sap:label="Functional loc." />
+                <Property Name="EquipmentId" Type="Edm.String" MaxLength="18" sap:label="Equipment" />
+                <Property Name="MaterialId" Type="Edm.String" MaxLength="18" sap:label="Material" />
+                <Property Name="MaintPlantId" Type="Edm.String" MaxLength="4" sap:label="MaintPlant" />
+                <Property Name="CompanyCodeId" Type="Edm.String" MaxLength="4" sap:label="Company Code" />
+                <Property Name="ProfitCenterId" Type="Edm.String" MaxLength="10" sap:label="Profit Center" />
+                <Property Name="WbsElementId" Type="Edm.String" MaxLength="24" sap:label="WBS Element" />
+                <Property Name="CostCenterId" Type="Edm.String" MaxLength="10" sap:label="Cost Center" />
+                <Property Name="StartDate" Type="Edm.DateTime" Precision="0" sap:label="Bas. start date" />
+                <Property Name="FinishDate" Type="Edm.DateTime" Precision="0" sap:label="Basic fin. date" />
+                <Property Name="Priority" Type="Edm.String" MaxLength="1" sap:label="Priority" />
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="Entered by" />
+                <Property Name="CreatedOn" Type="Edm.DateTime" Precision="0" sap:label="Created on" />
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:label="Changed by" />
+                <Property Name="ChangedOn" Type="Edm.DateTime" Precision="0" sap:label="Changed on" />
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Description" />
+                <Property Name="SystemStatus" Type="Edm.String" MaxLength="40" sap:label="System Status" />
+                <Property Name="ActivityTypeId" Type="Edm.String" MaxLength="3" sap:label="MaintActivType" />
+                <Property Name="CompleteFlag" Type="Edm.String" />
+                <NavigationProperty Name="PMOperations" Relationship="Z_MEASUREMENT_DOCUMENT.PlantMaintOrder_PMOperations" FromRole="FromRole_PlantMaintOrder_PMOperations" ToRole="ToRole_PlantMaintOrder_PMOperations" />
+            </EntityType>
+            <EntityType Name="Equipment" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EquipmentId" />
+                </Key>
+                <Property Name="EquipmentId" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Equipment" />
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:label="Description" />
+                <Property Name="EquipmentType" Type="Edm.String" MaxLength="10" sap:label="Object type" />
+                <Property Name="Manufacturer" Type="Edm.String" MaxLength="30" sap:label="Manufacturer" />
+                <Property Name="Model" Type="Edm.String" MaxLength="20" sap:label="Model number" />
+                <Property Name="ManufactureSerialNo" Type="Edm.String" MaxLength="30" sap:label="ManufSerialNo." />
+                <Property Name="Year" Type="Edm.String" MaxLength="4" sap:label="ConstructYear" />
+                <Property Name="MaintPlanningPlant" Type="Edm.String" MaxLength="4" sap:label="Planning plant" />
+                <Property Name="MaintPlant" Type="Edm.String" MaxLength="4" sap:label="MaintPlant" />
+                <Property Name="MaintLocation" Type="Edm.String" MaxLength="10" sap:label="Location" />
+                <Property Name="BusinessArea" Type="Edm.String" MaxLength="4" sap:label="Business Area" />
+                <Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:label="Cost Center" />
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:label="Company Code" />
+                <Property Name="VinNumber" Type="Edm.String" MaxLength="30" sap:label="VIN" />
+                <Property Name="ChassisNumber" Type="Edm.String" MaxLength="30" sap:label="Chassis no." />
+                <Property Name="LicensePlateNumber" Type="Edm.String" MaxLength="15" sap:label="License plate" />
+                <Property Name="ExpireDate" Type="Edm.DateTime" Precision="0" sap:label="ValidityEndDate" />
+                <Property Name="FuelMeasPointId" Type="Edm.String" MaxLength="12" sap:label="Measuring point" />
+                <Property Name="OdometerMeasPointId" Type="Edm.String" MaxLength="12" sap:label="Measuring point" />
+                <Property Name="HourmeterMeasPointId" Type="Edm.String" MaxLength="12" sap:label="Measuring point" />
+                <Property Name="BusinessMileageMeasPointId" Type="Edm.String" MaxLength="12" sap:label="Measuring point" />
+            </EntityType>
+            <EntityType Name="MeasurementDoc" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MeasurementDocId" />
+                </Key>
+                <Property Name="MeasurementDocId" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="MeasDocument" />
+                <Property Name="MeasurementPointId" Type="Edm.String" MaxLength="12" sap:label="Measuring point" />
+                <Property Name="MeasurementPointType" Type="Edm.String" MaxLength="20" sap:label="MeasPosition" />
+                <Property Name="EquipmentId" Type="Edm.String" MaxLength="18" sap:label="Equipment" />
+                <Property Name="MeasurementDate" Type="Edm.DateTime" Precision="0" sap:label="Date" />
+                <Property Name="MeasurementTime" Type="Edm.String" />
+                <Property Name="ReadingTakenBy" Type="Edm.String" MaxLength="12" sap:label="Read by" />
+                <Property Name="Value" Type="Edm.Decimal" Precision="31" Scale="14" />
+                <Property Name="UOM" Type="Edm.String" />
+                <Property Name="IsDifferenceReading" Type="Edm.String" MaxLength="1" sap:label="DiffEntered" />
+                <Property Name="ShortText" Type="Edm.String" MaxLength="40" sap:label="Text" />
+                <Property Name="ServiceOrderId" Type="Edm.String" MaxLength="12" sap:label="Order" />
+                <Property Name="ServiceOrderOperationId" Type="Edm.String" MaxLength="4" sap:label="Oper./Act." />
+            </EntityType>
+            <EntityType Name="MaterialMvmtItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaterialDocumentId" />
+                    <PropertyRef Name="MaterialDocumentYear" />
+                    <PropertyRef Name="ItemNumber" />
+                </Key>
+                <Property Name="MaterialDocumentId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Material Doc." />
+                <Property Name="MaterialDocumentYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Mat. Doc. Year" />
+                <Property Name="ItemNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Mat. Doc.Item" />
+                <Property Name="MaterialId" Type="Edm.String" MaxLength="18" sap:label="Material" />
+                <Property Name="PlantId" Type="Edm.String" MaxLength="4" sap:label="Plant" />
+                <Property Name="StorageLocationId" Type="Edm.String" MaxLength="4" sap:label="Stor. Location" />
+                <Property Name="MovementType" Type="Edm.String" MaxLength="3" sap:label="Movement Type" />
+                <Property Name="Quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Quantity in UnE" />
+                <Property Name="UOM" Type="Edm.String" />
+                <Property Name="CostCenterId" Type="Edm.String" MaxLength="10" sap:label="Cost Center" />
+                <Property Name="ReceivingMaterialId" Type="Edm.String" MaxLength="18" sap:label="Receiving Mat." />
+                <Property Name="ReceivingPlantId" Type="Edm.String" MaxLength="4" sap:label="Receiving Plant" />
+                <Property Name="ReceivingStorageLocationId" Type="Edm.String" MaxLength="4" sap:label="Receiving SLoc." />
+                <Property Name="MovementIndicator" Type="Edm.String" MaxLength="1" sap:label="Movement ind." />
+                <Property Name="ProfitCenterId" Type="Edm.String" MaxLength="10" sap:label="Profit Center" />
+                <Property Name="WbsElement" Type="Edm.String" MaxLength="24" sap:label="WBS Element" />
+                <Property Name="TransactionType" Type="Edm.String" MaxLength="2" sap:label="Trans./Ev. Type" />
+                <Property Name="PostingDate" Type="Edm.DateTime" Precision="0" sap:label="Posting Date" />
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="User name" />
+                <Property Name="OrderId" Type="Edm.String" MaxLength="12" sap:label="Order" />
+                <Property Name="OrderItemNumber" Type="Edm.String" MaxLength="4" sap:label="Item Number" />
+                <Property Name="Activity" Type="Edm.String" MaxLength="4" sap:label="Oper./Act." />
+                <Property Name="PurchaseOrderId" Type="Edm.String" MaxLength="10" sap:label="Purchase Order" />
+                <Property Name="PurchaseOrderItem" Type="Edm.String" MaxLength="5" sap:label="Item" />
+                <Property Name="Amount" Type="Edm.Decimal" Precision="23" Scale="4" sap:label="Amount in LC" />
+                <NavigationProperty Name="MaterialMvmtHeader" Relationship="Z_MEASUREMENT_DOCUMENT.MaterialMvmtItem_MaterialMvmtHeader" FromRole="FromRole_MaterialMvmtItem_MaterialMvmtHeader" ToRole="ToRole_MaterialMvmtItem_MaterialMvmtHeader" />
+            </EntityType>
+            <EntityType Name="MaterialMvmtHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaterialDocumentId" />
+                    <PropertyRef Name="MaterialDocumentYear" />
+                </Key>
+                <Property Name="MaterialDocumentId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Material Doc." />
+                <Property Name="MaterialDocumentYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Mat. Doc. Year" />
+                <Property Name="TransactionType" Type="Edm.String" MaxLength="2" sap:label="Trans./Ev. Type" />
+                <Property Name="DocumentDate" Type="Edm.DateTime" Precision="0" sap:label="Document Date" />
+                <Property Name="PostingDate" Type="Edm.DateTime" Precision="0" sap:label="Posting Date" />
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="User name" />
+                <Property Name="ReferenceDocumentId" Type="Edm.String" MaxLength="16" sap:label="Reference" />
+                <Property Name="HeaderText" Type="Edm.String" MaxLength="25" sap:label="Doc.Header Text" />
+                <NavigationProperty Name="MaterialMvmtItems" Relationship="Z_MEASUREMENT_DOCUMENT.MaterialMvmtHeader_MaterialMvmtItems" FromRole="FromRole_MaterialMvmtHeader_MaterialMvmtItems" ToRole="ToRole_MaterialMvmtHeader_MaterialMvmtItems" />
+            </EntityType>
+            <EntityType Name="FuelType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FuelTypes" />
+                    <PropertyRef Name="Matnr" />
+                    <PropertyRef Name="Station" />
+                </Key>
+                <Property Name="FuelTypes" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Station" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Default" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Text" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+            </EntityType>
+            <EntityType Name="Station" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Stations" />
+                </Key>
+                <Property Name="Stations" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Plant" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Storage" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <Property Name="Text" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+                <NavigationProperty Name="StationToFuel" Relationship="Z_MEASUREMENT_DOCUMENT.StationsFuels" FromRole="FromRole_StationsFuels" ToRole="ToRole_StationsFuels" />
+            </EntityType>
+            <Association Name="StationsFuels" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.Station" Multiplicity="1" Role="FromRole_StationsFuels" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.FuelType" Multiplicity="*" Role="ToRole_StationsFuels" />
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_StationsFuels">
+                        <PropertyRef Name="Stations" />
+                    </Principal>
+                    <Dependent Role="ToRole_StationsFuels">
+                        <PropertyRef Name="Station" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Operation_GoodsMovements" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.PMOperation" Multiplicity="1" Role="FromRole_Operation_GoodsMovements" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.GoodsMovement" Multiplicity="*" Role="ToRole_Operation_GoodsMovements" />
+            </Association>
+            <Association Name="Operation_Confirmations" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.PMOperation" Multiplicity="1" Role="FromRole_Operation_Confirmations" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.Confirmation" Multiplicity="*" Role="ToRole_Operation_Confirmations" />
+            </Association>
+            <Association Name="PMOperation_PlantMaintOrder" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.PMOperation" Multiplicity="1" Role="FromRole_PMOperation_PlantMaintOrder" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.PlantMaintOrder" Multiplicity="1" Role="ToRole_PMOperation_PlantMaintOrder" />
+            </Association>
+            <Association Name="MaterialMvmtItem_MaterialMvmtHeader" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.MaterialMvmtItem" Multiplicity="1" Role="FromRole_MaterialMvmtItem_MaterialMvmtHeader" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.MaterialMvmtHeader" Multiplicity="1" Role="ToRole_MaterialMvmtItem_MaterialMvmtHeader" />
+            </Association>
+            <Association Name="MaterialMvmtHeader_MaterialMvmtItems" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.MaterialMvmtHeader" Multiplicity="1" Role="FromRole_MaterialMvmtHeader_MaterialMvmtItems" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.MaterialMvmtItem" Multiplicity="*" Role="ToRole_MaterialMvmtHeader_MaterialMvmtItems" />
+            </Association>
+            <Association Name="Confirmation_Operation" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.Confirmation" Multiplicity="1" Role="FromRole_Confirmation_Operation" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.PMOperation" Multiplicity="1" Role="ToRole_Confirmation_Operation" />
+            </Association>
+            <Association Name="PlantMaintOrder_PMOperations" sap:content-version="1">
+                <End Type="Z_MEASUREMENT_DOCUMENT.PlantMaintOrder" Multiplicity="1" Role="FromRole_PlantMaintOrder_PMOperations" />
+                <End Type="Z_MEASUREMENT_DOCUMENT.PMOperation" Multiplicity="*" Role="ToRole_PlantMaintOrder_PMOperations" />
+            </Association>
+            <EntityContainer Name="Z_MEASUREMENT_DOCUMENT_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
+                <EntitySet Name="PMOperations" EntityType="Z_MEASUREMENT_DOCUMENT.PMOperation" sap:content-version="1" />
+                <EntitySet Name="Confirmations" EntityType="Z_MEASUREMENT_DOCUMENT.Confirmation" sap:content-version="1" />
+                <EntitySet Name="GoodsMovements" EntityType="Z_MEASUREMENT_DOCUMENT.GoodsMovement" sap:content-version="1" />
+                <EntitySet Name="PlantMaintOrders" EntityType="Z_MEASUREMENT_DOCUMENT.PlantMaintOrder" sap:content-version="1" />
+                <EntitySet Name="EquipmentCollection" EntityType="Z_MEASUREMENT_DOCUMENT.Equipment" sap:content-version="1" />
+                <EntitySet Name="MeasurementDocs" EntityType="Z_MEASUREMENT_DOCUMENT.MeasurementDoc" sap:content-version="1" />
+                <EntitySet Name="MaterialMvmtItems" EntityType="Z_MEASUREMENT_DOCUMENT.MaterialMvmtItem" sap:content-version="1" />
+                <EntitySet Name="MaterialMvmts" EntityType="Z_MEASUREMENT_DOCUMENT.MaterialMvmtHeader" sap:content-version="1" />
+                <EntitySet Name="FuelTypeSet" EntityType="Z_MEASUREMENT_DOCUMENT.FuelType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1" />
+                <EntitySet Name="StationSet" EntityType="Z_MEASUREMENT_DOCUMENT.Station" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1" />
+                <AssociationSet Name="Confirmation_Operation_AssocSet" Association="Z_MEASUREMENT_DOCUMENT.Confirmation_Operation" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Confirmations" Role="FromRole_Confirmation_Operation" />
+                    <End EntitySet="PMOperations" Role="ToRole_Confirmation_Operation" />
+                </AssociationSet>
+                <AssociationSet Name="StationsFuelsSet" Association="Z_MEASUREMENT_DOCUMENT.StationsFuels" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="StationSet" Role="FromRole_StationsFuels" />
+                    <End EntitySet="FuelTypeSet" Role="ToRole_StationsFuels" />
+                </AssociationSet>
+                <AssociationSet Name="PMOperation_PlantMaintOrder_AssocSet" Association="Z_MEASUREMENT_DOCUMENT.PMOperation_PlantMaintOrder" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PMOperations" Role="FromRole_PMOperation_PlantMaintOrder" />
+                    <End EntitySet="PlantMaintOrders" Role="ToRole_PMOperation_PlantMaintOrder" />
+                </AssociationSet>
+                <AssociationSet Name="Operation_Confirmations_AssocSet" Association="Z_MEASUREMENT_DOCUMENT.Operation_Confirmations" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PMOperations" Role="FromRole_Operation_Confirmations" />
+                    <End EntitySet="Confirmations" Role="ToRole_Operation_Confirmations" />
+                </AssociationSet>
+                <AssociationSet Name="PlantMaintOrder_PMOperations_AssocSet" Association="Z_MEASUREMENT_DOCUMENT.PlantMaintOrder_PMOperations" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PlantMaintOrders" Role="FromRole_PlantMaintOrder_PMOperations" />
+                    <End EntitySet="PMOperations" Role="ToRole_PlantMaintOrder_PMOperations" />
+                </AssociationSet>
+                <AssociationSet Name="MaterialMvmtHeader_MaterialMvmtItems_Ass" Association="Z_MEASUREMENT_DOCUMENT.MaterialMvmtHeader_MaterialMvmtItems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MaterialMvmts" Role="FromRole_MaterialMvmtHeader_MaterialMvmtItems" />
+                    <End EntitySet="MaterialMvmtItems" Role="ToRole_MaterialMvmtHeader_MaterialMvmtItems" />
+                </AssociationSet>
+                <AssociationSet Name="Operation_GoodsMovements_AssocSet" Association="Z_MEASUREMENT_DOCUMENT.Operation_GoodsMovements" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PMOperations" Role="FromRole_Operation_GoodsMovements" />
+                    <End EntitySet="GoodsMovements" Role="ToRole_Operation_GoodsMovements" />
+                </AssociationSet>
+                <AssociationSet Name="MaterialMvmtItem_MaterialMvmtHeader_Asso" Association="Z_MEASUREMENT_DOCUMENT.MaterialMvmtItem_MaterialMvmtHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MaterialMvmtItems" Role="FromRole_MaterialMvmtItem_MaterialMvmtHeader" />
+                    <End EntitySet="MaterialMvmts" Role="ToRole_MaterialMvmtItem_MaterialMvmtHeader" />
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/$metadata" />
+            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/$metadata" />
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

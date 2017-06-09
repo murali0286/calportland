@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="Z_MEASUREMENT_DOCUMENTS_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="MeasurementDoc" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="MeasurementDocId" />
+				</Key>
+				<Property Name="MeasurementDocId" Type="Edm.String"
+					Nullable="false" MaxLength="20" sap:label="MeasDocument" />
+				<Property Name="MeasurementPointId" Type="Edm.String"
+					MaxLength="12" sap:label="Measuring point" />
+				<Property Name="MeasurementPointType" Type="Edm.String"
+					MaxLength="20" sap:label="MeasPosition" />
+				<Property Name="EquipmentId" Type="Edm.String" MaxLength="18"
+					sap:label="Equipment" />
+				<Property Name="MeasurementDate" Type="Edm.DateTime"
+					Precision="0" sap:label="Date" />
+				<Property Name="MeasurementTime" Type="Edm.String" />
+				<Property Name="ReadingTakenBy" Type="Edm.String"
+					MaxLength="12" sap:label="Read by" />
+				<Property Name="Value" Type="Edm.Decimal" Precision="31"
+					Scale="14" />
+				<Property Name="UOM" Type="Edm.String" />
+				<Property Name="IsDifferenceReading" Type="Edm.String"
+					MaxLength="1" sap:label="DiffEntered" />
+				<Property Name="ShortText" Type="Edm.String" MaxLength="40"
+					sap:label="Text" />
+				<Property Name="ServiceOrderId" Type="Edm.String"
+					MaxLength="12" sap:label="Order" />
+				<Property Name="ServiceOrderOperationId" Type="Edm.String"
+					MaxLength="4" sap:label="Oper./Act." />
+			</EntityType>
+			<EntityType Name="Equipment" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="EquipmentId" />
+				</Key>
+				<Property Name="EquipmentId" Type="Edm.String" Nullable="false"
+					MaxLength="18" sap:label="Equipment" />
+				<Property Name="Description" Type="Edm.String" MaxLength="40"
+					sap:label="Description" />
+				<Property Name="EquipmentType" Type="Edm.String" MaxLength="10"
+					sap:label="Object type" />
+				<Property Name="Manufacturer" Type="Edm.String" MaxLength="30"
+					sap:label="Manufacturer" />
+				<Property Name="Model" Type="Edm.String" MaxLength="20"
+					sap:label="Model number" />
+				<Property Name="ManufactureSerialNo" Type="Edm.String"
+					MaxLength="30" sap:label="ManufSerialNo." />
+				<Property Name="Year" Type="Edm.String" MaxLength="4"
+					sap:label="ConstructYear" />
+				<Property Name="MaintPlanningPlant" Type="Edm.String"
+					MaxLength="4" sap:label="Planning plant" />
+				<Property Name="MaintPlant" Type="Edm.String" MaxLength="4"
+					sap:label="MaintPlant" />
+				<Property Name="MaintLocation" Type="Edm.String" MaxLength="10"
+					sap:label="Location" />
+				<Property Name="BusinessArea" Type="Edm.String" MaxLength="4"
+					sap:label="Business Area" />
+				<Property Name="CostCenter" Type="Edm.String" MaxLength="10"
+					sap:label="Cost Center" />
+				<Property Name="CompanyCode" Type="Edm.String" MaxLength="4"
+					sap:label="Company Code" />
+				<Property Name="VinNumber" Type="Edm.String" MaxLength="30"
+					sap:label="VIN" />
+				<Property Name="ChassisNumber" Type="Edm.String" MaxLength="30"
+					sap:label="Chassis no." />
+				<Property Name="LicensePlateNumber" Type="Edm.String"
+					MaxLength="15" sap:label="License plate" />
+				<Property Name="ExpireDate" Type="Edm.DateTime" Precision="0"
+					sap:label="ValidityEndDate" />
+				<Property Name="FuelMeasPointId" Type="Edm.String"
+					MaxLength="12" sap:label="Measuring point" />
+				<Property Name="OdometerMeasPointId" Type="Edm.String"
+					MaxLength="12" sap:label="Measuring point" />
+				<Property Name="HourmeterMeasPointId" Type="Edm.String"
+					MaxLength="12" sap:label="Measuring point" />
+				<Property Name="BusinessMileageMeasPointId" Type="Edm.String"
+					MaxLength="12" sap:label="Measuring point" />
+			</EntityType>
+			<EntityContainer Name="Z_MEASUREMENT_DOCUMENTS_SRV_Entities"
+				m:IsDefaultEntityContainer="true" sap:supported-formats="atom json">
+				<EntitySet Name="MeasurementDocs" EntityType="Z_MEASUREMENT_DOCUMENTS_SRV.MeasurementDoc"
+					sap:content-version="1" />
+				<EntitySet Name="EquipmentCollection" EntityType="Z_MEASUREMENT_DOCUMENTS_SRV.Equipment" sap:content-version="1"/>
+			</EntityContainer>
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
+				href="http://glnnwgwqas.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/$metadata" />
+			<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="http://glnnwgwqas.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/$metadata" />
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

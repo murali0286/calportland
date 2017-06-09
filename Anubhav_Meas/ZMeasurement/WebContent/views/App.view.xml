@@ -1,0 +1,7 @@
+<mvc:View
+	controllerName="calportland.controllers.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	<App id="app" navigate="onNavigation" homeIcon="sap-icon://home"/>
+</mvc:View>

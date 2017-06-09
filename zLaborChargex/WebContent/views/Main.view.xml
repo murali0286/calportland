@@ -1,0 +1,115 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+           xmlns="sap.m" controllerName="labor.charge.controllers.Main" xmlns:html="http://www.w3.org/1999/xhtml"
+           xmlns:smartVariantManagement="sap.ui.comp.smartvariants" xmlns:table="sap.ui.table" xmlns:c="sap.ui.commons"
+           xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable">
+    <App>
+        <pages>
+            <Page title="Change Labor Charge Code"
+                  showNavButton="true"
+                  navButtonPress="onBack">
+                <content>
+                    <html:style>
+                        .exPageVariantPadding {
+                        padding-left: 10rem;
+                        }
+                    </html:style>
+                    <HBox class="exPageVariantPadding">
+                        <smartVariantManagement:SmartVariantManagement
+                                id="pageVariantId"
+                                persistencyKey="PageVariantPKey"
+                                visible="true"/>
+                    </HBox>
+                    <smartFilterBar:SmartFilterBar id="smartFilterBar"
+                                                   search="onSearchValidation"
+                                                   entityType="laborCharge"
+                                                   smartVariant="pageVariantId"
+                                                   persistencyKey="SmartFilterPKey"
+                                                   filterChange="onFiltersChanged">
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration
+                                    class="exPageVariantPadding"
+                                    key="Werks"
+                                    visibleInAdvancedArea="true"
+                                    controlType="dropDownList"
+                                    filterType="single"
+                                    displayBehaviour="descriptionAndId"
+                                    mandatory="mandatory"
+                                    preventInitialDataFetchInValueHelpDialog="true">
+                            </smartFilterBar:ControlConfiguration>
+                            <smartFilterBar:ControlConfiguration
+                                    key="CostCenter"
+                                    visibleInAdvancedArea="true"
+                                    controlType="dropDownList"
+                                    filterType="single"
+                                    displayBehaviour="descriptionAndId"
+                                    preventInitialDataFetchInValueHelpDialog="true"
+                                    change="onValueSel">
+                            </smartFilterBar:ControlConfiguration>
+                            <smartFilterBar:ControlConfiguration
+                                    key="WorkCenter"
+                                    visibleInAdvancedArea="true"
+                                    controlType="dropDownList"
+                                    filterType="single"
+                                    displayBehaviour="descriptionAndId"
+                                    preventInitialDataFetchInValueHelpDialog="true"
+                                    change="onValueSel">
+                            </smartFilterBar:ControlConfiguration>
+                            <smartFilterBar:ControlConfiguration
+                                    key="ChargeCode"
+                                    visibleInAdvancedArea="false"
+                                    visible="false"
+                                    controlType="dropDownList"
+                                    filterType="single"
+                                    displayBehaviour="descriptionAndId"
+                                    preventInitialDataFetchInValueHelpDialog="true">
+                            </smartFilterBar:ControlConfiguration>
+                            <smartFilterBar:ControlConfiguration
+                                    key="ChargeDescr"
+                                    visibleInAdvancedArea="false"
+                                    visible="false"
+                                    controlType="dropDownList"
+                                    filterType="single"
+                                    displayBehaviour="descriptionAndId"
+                                    preventInitialDataFetchInValueHelpDialog="true">
+                            </smartFilterBar:ControlConfiguration>
+                        </smartFilterBar:controlConfiguration>
+                    </smartFilterBar:SmartFilterBar>
+                    <smartTable:SmartTable id="smartTable_ResponsiveTable"
+                                           smartFilterId="smartFilterBar"
+                                           smartVariant="pageVariantId"
+                                           tableType=""
+                                           editable="false"
+                                           entitySet="laborChargeSet"
+                                           useVariantManagement="false"
+                                           useTablePersonalisation="false"
+                                           ignoreFromPersonalisation="Werks,CostCenter,WorkCenter"
+                                           header="Charge Codes"
+                                           showRowCount="true"
+                                           useExportToExcel="false"
+                                           enableAutoBinding="true"
+                                           persistencyKey="SmartTablePKey">
+                        <table:Table id="smartTable" rows="{/laborChargeSet}">
+                            <table:columns>
+                                <table:Column width="60px"
+                                              sortProperty="ChargeCode"
+                                              filterProperty="ChargeCode">
+                                    <table:template>
+                                        <c:RadioButton width="30px"/>
+                                    </table:template>
+                                </table:Column>
+
+                            </table:columns>
+                        </table:Table>
+                    </smartTable:SmartTable>
+                </content>
+                <footer>
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Button text="Submit" type="Accept" press="onSubmit"/>
+                        <Button text="Clock Out" press="ClockOut" type="Reject"/>
+                    </Toolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</core:View>

@@ -1,0 +1,32 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TADI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TADI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Kostl": "23462",
+			"Ltext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "1000"
+		},{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TBDI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TBDI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Kostl": "23465",
+			"Ltext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "2100"
+		},{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TCDI')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_CostCtr('TCDI')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Kostl": "23467",
+			"Ltext": "TAXAS CMC PROD - AIRBORNE INTEGRATION",
+			"Werks": "2100"
+		}]
+	}
+}

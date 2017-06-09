@@ -1,0 +1,126 @@
+{
+  "d": {
+    "results": [
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='001')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='001')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "001",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='005')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='005')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "005",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='008')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='008')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "008",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='012')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='012')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "012",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='018')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='018')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "018",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='021')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='021')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "021",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='023')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='023')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "023",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='049')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='049')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "049",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='051')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='051')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "051",
+        "Default": "X",
+        "Text": "GASOLINE"
+      },
+      {
+        "__metadata": {
+          "id": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='056')",
+          "uri": "http://glnnwgwdev.calportland.com:8000/sap/opu/odata/sap/Z_MEASUREMENT_DOCUMENTS_SRV/FuelTypeSet(FuelTypes='0001',Matnr='000000000093000121',Station='056')",
+          "type": "Z_MEASUREMENT_DOCUMENT.FuelType"
+        },
+        "FuelTypes": "0001",
+        "Matnr": "000000000093000121",
+        "Station": "056",
+        "Default": "X",
+        "Text": "GASOLINE"
+      }
+    ]
+  }
+}

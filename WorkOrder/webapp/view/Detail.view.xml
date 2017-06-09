@@ -1,48 +1,153 @@
 <mvc:View
-		controllerName="calportland.workorder.controller.Detail"
-		xmlns="sap.m"
-		xmlns:mvc="sap.ui.core.mvc"
-		xmlns:semantic="sap.m.semantic">
+        controllerName="calportland.workorder.controller.Detail"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:semantic="sap.m.semantic"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form">
 
-	<semantic:DetailPage
-			id="page"
-			navButtonPress="onNavBack"
-			showNavButton="{device>/system/phone}"
-			title="{i18n>detailTitle}"
-			busy="{detailView>/busy}"
-			busyIndicatorDelay="{detailView>/delay}">
+    <semantic:DetailPage
+            id="page"
+            navButtonPress="onNavBack"
+            showNavButton="{device>/system/phone}"
+            title="{i18n>detailTitle}"
+            busy="{detailView>/busy}"
+            busyIndicatorDelay="{detailView>/delay}">
 
-		<semantic:content>
-			<ObjectHeader
-					id="objectHeader"
-					title="{OrderID}"
->
-			</ObjectHeader>
-			<IconTabBar
-					id="iconTabBar"
-					class="sapUiResponsiveContentPadding">
-				<items>
-					<IconTabFilter
-							id="iconTabBarFilter1"
-							icon="sap-icon://hint"
-							tooltip="{i18n>detailIconTabBarInfo}">
-					</IconTabFilter>
-					<IconTabFilter
-							id="iconTabBarFilter2"
-							icon="sap-icon://attachment"
-							tooltip="{i18n>detailIconTabBarAttachments}">
-					</IconTabFilter>
-				</items>
-			</IconTabBar>
+        <semantic:content>
+            <ObjectHeader
+                    id="objectHeader"
+                    title="{OrderId}"
+            >
+                <statuses>
+                    <ObjectStatus
+                            title="Status"
+                            text="{SystemStatus}"
+                            state="None" />
+                    <!--<ObjectStatus-->
+                            <!--text="{OrderTypeId}"-->
+                            <!--state="Success" />-->
+                </statuses>
+                <attributes>
+                    <ObjectAttribute title="Description" text="{Description}" />
+                    <ObjectAttribute title="Creator" text="{CreatedBy}" />
+                </attributes>
+            </ObjectHeader>
+            <IconTabBar
+                    id="iconTabBar"
+                    class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter
+                            id="iconTabBarFilter1"
+                            icon="sap-icon://hint"
+                            tooltip="{i18n>detailIconTabBarInfo}">
+                        <f:Form
+                                minWidth="1024"
+                                maxContainerCols="2"
+                                editable="false"
+                                class="sapUiSizeCozy sapUiResponsiveContentPadding"
+                                title="Order Info">
+                            <f:layout>
+                                <f:ResponsiveGridLayout
+                                        labelSpanL="4"
+                                        labelSpanM="4"
+                                        emptySpanL="1"
+                                        emptySpanM="1"
+                                        columnsL="2"
+                                        columnsM="2"/>
+                            </f:layout>
+                            <f:formContainers >
+                                <!--Host Details-->
+                                <f:FormContainer title="" class="sapUiResponsiveContentPadding">
+                                    <f:formElements>
+                                        <f:FormElement label="Order Type">
+                                            <f:fields>
+                                                <Text text="{OrderTypeId}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Equipment">
+                                            <f:fields>
+                                                <Text text="{EquipmentId}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Plant">
+                                            <f:fields>
+                                                <Text text="{PlantId}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Functional Location">
+                                            <f:fields>
+                                                <Text text="{FuncLocationId}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Work Center">
+                                            <f:fields>
+                                                <Text text="{WorkCenterId}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
 
-		</semantic:content>
+                                    </f:formElements>
+                                </f:FormContainer>
+                            </f:formContainers>
+                        </f:Form>
+                    </IconTabFilter>
+                    <IconTabFilter
+                            id="iconTabBarFilter2"
+                            icon="sap-icon://employee"
+                            tooltip="{i18n>detailIconTabBarAttachments}">
+                        <f:Form
+                                minWidth="1024"
+                                maxContainerCols="2"
+                                editable="false"
+                                class="sapUiSizeCozy sapUiResponsiveContentPadding"
+                                title="User Info">
+                            <f:layout>
+                                <f:ResponsiveGridLayout
+                                        labelSpanL="4"
+                                        labelSpanM="4"
+                                        emptySpanL="1"
+                                        emptySpanM="1"
+                                        columnsL="2"
+                                        columnsM="2"/>
+                            </f:layout>
+                            <f:formContainers >
+                                <!--Host Details-->
+                                <f:FormContainer title="" class="sapUiResponsiveContentPadding">
+                                    <f:formElements>
+                                        <f:FormElement label="Created By">
+                                            <f:fields>
+                                                <Text text="{CreatedBy}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Created On">
+                                            <f:fields>
+                                                <Text text="{CreatedOn}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Last Changed By">
+                                            <f:fields>
+                                                <Text text="{ChangedBy}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                        <f:FormElement label="Last Changed On">
+                                            <f:fields>
+                                                <Text text="{ChangedOn}"></Text>
+                                            </f:fields>
+                                        </f:FormElement>
+                                    </f:formElements>
+                                </f:FormContainer>
+                            </f:formContainers>
+                        </f:Form>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
 
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction
-					id="shareEmail"
-					press="onShareEmailPress"/>
-		</semantic:sendEmailAction>
+        </semantic:content>
 
-	</semantic:DetailPage>
-
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction
+                    id="shareEmail"
+                    press="onShareEmailPress"/>
+        </semantic:sendEmailAction>
+    </semantic:DetailPage>
 </mvc:View>

@@ -1,0 +1,23 @@
+{
+	"d": {
+		"results": [{
+			"ChargeCode": "90000200",
+			"Werks": "1000",
+			"ChargeDescr": "Manufacturing Touch Training",
+			"WorkCenter": "",
+			"CostCenter": "TPAI"
+		}, {
+			"ChargeCode": "90000201",
+			"Werks": "1000",
+			"ChargeDescr": "Manufacturing Touch Training",
+			"WorkCenter": "",
+			"CostCenter": "TPAI"
+		}, {
+			"ChargeCode": "90000221",
+			"Werks": "2000",
+			"ChargeDescr": "Launcher Adavanced Module",
+			"WorkCenter": "",
+			"CostCenter": "TPAI"
+		}]
+	}
+}

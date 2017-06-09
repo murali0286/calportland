@@ -1,0 +1,52 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+	"_version": "1.1.0",
+	"id": "labor.charge",
+	"type": "application",
+	"title": "SAPUI5 Smart Controls",
+	"description": "Labor Charge Code",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	},
+	"ach": "CA-UI5-FST",
+	"dataSources": {
+	  "mainService": {
+		"uri": "/sap/opu/odata/sap/Z_LCC_SRV/",
+		"type": "OData",
+		"settings": {
+		  "odataVersion": "2.0"
+		}
+	  }
+	}
+  },
+  "sap.ui": {
+	"_version": "1.1.0",
+	"technology": "UI5"
+  },
+  "sap.ui5": {
+	"_version": "1.1.0",
+	"rootView": "labor.charge.views.Main",
+	"handleValidation": true,
+	
+	"config": {
+			"fullWidth" : true,
+			"sapFiori2Adaptation": true
+		},
+	"dependencies": {
+	  "minUI5Version": "1.38",
+	  "libs": {
+	    "sap.m": {},
+	    "sap.ui.comp": {}
+	  }
+	},
+	"models": {
+	   "": {
+		"dataSource": "mainService",
+		"settings" : {
+					"defaultBindingMode": "TwoWay"					
+	    }
+	  }
+	}
+  }
+}

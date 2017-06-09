@@ -56,6 +56,14 @@ sap.ui.define([
 
                 this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
                 this.getRouter().attachBypassed(this.onBypassed, this);
+
+                this.getOwnerComponent().getModel().metadataLoaded().then(function (data) {
+                    this.getModel().read("/PlantMaintOrders", {
+                        success: function (data) {
+                            oViewModel.setProperty("/PlantMaintOrders", data.results);
+                        }.bind(this)
+                    });
+                }.bind(this));
             },
 
             /* =========================================================== */
@@ -174,7 +182,7 @@ sap.ui.define([
                     delay: 0,
                     title: this.getResourceBundle().getText("masterTitleCount", [0]),
                     noDataText: this.getResourceBundle().getText("masterListNoDataText"),
-                    sortBy: "OrderID",
+                    sortBy: "OrderId",
                     groupBy: "None"
                 });
             },
@@ -191,7 +199,7 @@ sap.ui.define([
                         if (mParams.list.getMode() === "None") {
                             return;
                         }
-                        var sObjectId = mParams.firstListitem.getBindingContext().getProperty("OrderID");
+                        var sObjectId = mParams.firstListitem.getBindingContext().getProperty("OrderId");
                         this.getRouter().navTo("object", {objectId: sObjectId}, true);
                     }.bind(this),
                     function (mParams) {
@@ -212,7 +220,7 @@ sap.ui.define([
             _showDetail: function (oItem) {
                 var bReplace = !Device.system.phone;
                 this.getRouter().navTo("object", {
-                    objectId: oItem.getBindingContext().getProperty("OrderID")
+                    objectId: oItem.getBindingContext().getProperty("OrderId")
                 }, bReplace);
             },
 

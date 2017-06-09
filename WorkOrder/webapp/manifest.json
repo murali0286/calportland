@@ -12,7 +12,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/northwind/V2/northwind/northwind.svc/",
+				"uri": "/sap/opu/odata/sap/Z_PM_ORDER_SERVICE/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",

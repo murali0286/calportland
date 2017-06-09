@@ -1,0 +1,165 @@
+<core:View controllerName="calportland.measure.controller.MainNew"
+           xmlns:core="sap.ui.core"
+           xmlns:mvc="sap.ui.core.mvc"
+           xmlns="sap.m"
+           xmlns:html="http://www.w3.org/1999/xhtml"
+           xmlns:table="sap.ui.table"
+           xmlns:f="sap.ui.layout.form"
+           xmlns:l="sap.ui.layout">
+
+    <Page title="Measurement Document" showNavButton="true"
+          navButtonPress="onNavBack" icon="sap-icon://home">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:Form minWidth="1024"
+                        maxContainerCols="2"
+                        editable="true">
+                    <f:title>
+                        <core:Title text="Measurement Create"/>
+                    </f:title>
+                    <f:layout>
+                        <f:ResponsiveGridLayout labelSpanL="3"
+                                                labelSpanM="3"
+                                                emptySpanL="4"
+                                                emptySpanM="4"
+                                                columnsL="1"
+                                                columnsM="1"/>
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer>
+                            <f:formElements>
+                                <f:FormElement label="Reading Type">
+                                    <f:fields>
+                                        <Select width="100%" id="readingType" selectedKey="{ViewModel>/CurrentData/ReadingType}">
+                                            <items>
+                                                <core:Item text="BusinessMileage" key="BusinessMileage"/>
+                                                <core:Item text="Fuel" key="Fuel"/>
+                                                <core:Item text="Hourmeter" key="Hourmeter"/>
+                                                <core:Item text="Odometer" key="Odometer"/>
+                                            </items>
+                                        </Select>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Equipment No.">
+                                    <f:fields>
+                                        <Input  id="EquipmentDetails"
+                                                value="{ViewModel>/CurrentData/EquipmentId}"
+                                                showSuggestion="true"
+                                                change="validateEquipmentEntry"
+                                                suggest="handleSuggest"
+                                                suggestionItemSelected="onSuggesstionItemSelected"
+                                                required="true"
+                                                suggestionItems="{ path: 'ViewModel>/Equipments', templateShareable:false}">
+                                            <suggestionItems>
+                                                <core:ListItem text="{ViewModel>EquipmentId}"
+                                                               additionalText="{ViewModel>Description}"
+                                                               key="{ViewModel>FuelMeasPointId}"/>
+                                            </suggestionItems>
+                                        </Input>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Reading Value">
+                                    <f:fields>
+                                        <Input id="ReadingValue"
+                                                type="Number"
+                                               value="{ViewModel>/CurrentData/ReadingValue}"
+                                               required="true"
+                                               change="validateReadingValue"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Reading Date/Time">
+                                    <f:fields>
+                                        <DatePicker id="ReadingDate"
+                                                    dateValue="{ViewModel>/CurrentData/ReadingDate}"
+                                                    displayFormat="long"
+                                                    change="validateDate"
+                                                    required="true">
+                                            <layoutData>
+                                                <l:GridData span="L2 M2 S4"/>
+                                            </layoutData>
+                                        </DatePicker>
+                                        <TimePicker id="ReadingTime"
+                                                    dateValue="{ViewModel>/CurrentData/ReadingTime}"
+                                                    displayFormat="HH:mm:ss"
+                                                    valueFormat="HHmmss"
+                                                    change="validateTime"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="">
+                                    <f:fields>
+                                        <Button id="Save" text="Save" press="onSave" icon="sap-icon://product" busyIndicatorDelay="0">
+                                            <layoutData>
+                                                <l:GridData span="L5 M5 S5"/>
+                                            </layoutData>
+                                        </Button>
+                                    </f:fields>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </VBox>
+            <VBox>
+                <Table
+                        busyIndicatorDelay="0"
+                        items = "{
+                                path: 'ViewModel>/SavedData'
+                            }"
+                        >
+                    <columns>
+                        <Column>
+                            <Text text="Reading Type" />
+                        </Column>
+                        <Column
+                                minScreenWidth="Tablet"
+                                demandPopin="true"
+                                width="auto"
+                                hAlign="Center"
+                                vAlign="Middle"
+                                >
+                            <Text text="Equipment Number"/>
+                        </Column>
+                        <Column
+                                minScreenWidth="Desktop"
+                                demandPopin="true"
+                                width="auto"
+                                hAlign="Center"
+                                vAlign="Middle"
+                        >
+                            <Text text="Reading Value"/>
+                        </Column>
+                        <Column
+                                minScreenWidth="Desktop"
+                                demandPopin="true"
+                                width="auto"
+                                hAlign="Center"
+                                vAlign="Middle"
+                        >
+                            <Text text="Reading Date"/>
+                        </Column>
+                        <Column
+                                minScreenWidth="Desktop"
+                                demandPopin="true"
+                                width="auto"
+                                hAlign="Center"
+                                vAlign="Middle"
+                        >
+                            <Text text="Status"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <ObjectAttribute text="{ViewModel>ReadingType}" />
+                                <ObjectAttribute text="{ViewModel>EquipmentId}" />
+                                <ObjectAttribute text="{ViewModel>ReadingValue}" />
+                                <ObjectAttribute text="{ViewModel>ReadingDate}" />
+                                <ObjectAttribute text="{ViewModel>Status}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</core:View>

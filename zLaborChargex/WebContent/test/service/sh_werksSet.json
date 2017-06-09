@@ -1,0 +1,61 @@
+{
+	"d": {
+		"results": [{
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('1000')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('1000')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "1000",
+			"Name1": "RAYTHEON RMS TUCSON"
+		}, {
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('2000')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('2000')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "2000",
+			"Name1": "ANDOVER AREA SITES"
+		}, {
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('2100')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('2100')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "2100",
+			"Name1": "ENGINEERING-LEGACY"
+		}, {
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('2950')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('2950')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "2950",
+			"Name1": "New Orleans"
+		}, {
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('3090')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('3090')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "3090",
+			"Name1": "RAYTHEON AST ANNAPOLIS JUNCT"
+		}, {
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('8296')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('8296')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "8296",
+			"Name1": "IIS-Riverdale-RIS, MD"
+		}, {
+			"__metadata": {
+				"id": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('9316')",
+				"uri": "http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/sh_werksSet('9316')",
+				"type": "Z_LCC_SRV.sh_werks"
+			},
+			"Werks": "9316",
+			"Name1": "RAYTHEON SYSTEMS SUPPORT CO."
+		}]
+	}
+}

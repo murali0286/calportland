@@ -33,9 +33,9 @@
 			<List
 					id="list"
 					items="{
-						path: '/Orders',
+						path: '/PlantMaintOrders',
 						sorter: {
-							path: 'OrderID',
+							path: 'OrderId',
 							descending: false
 							},
 						groupHeaderFactory: '.createGroupHeader'
@@ -62,24 +62,29 @@
 					<ObjectListItem
 							type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
 							press="onSelectionChange"
-							title="OrderID : {OrderID}">
-						<firstStatus>
-							<ObjectStatus
-									text="{Status}"
-									state="{
-							path: 'Status',
-							formatter: '.formatter.status'
-						}" />
-						</firstStatus>
+							title="{OrderId}">
+						<!--<firstStatus>-->
+							<!--<ObjectStatus-->
+									<!--text="{SystemStatus}"-->
+									<!--state="{-->
+							<!--path: 'Status',-->
+							<!--formatter: '.formatter.status'-->
+						<!--}" />-->
+						<!--</firstStatus>-->
 						<attributes>
-							<ObjectAttribute text="{EquipmentNumber}" />
+							<ObjectAttribute text="{Description}" />
 							<!--<ObjectAttribute text="{Width} x {Depth} x {Height} {DimUnit}" />-->
 						</attributes>
 					</ObjectListItem>
 				</items>
 			</List>
 		</semantic:content>
-
+		<semantic:addAction>
+			<semantic:AddAction press="onCreate"/>
+		</semantic:addAction>
+		<semantic:filter>
+			<semantic:FilterAction press="onFilter"/>
+		</semantic:filter>
 	</semantic:MasterPage>
 
 </mvc:View>

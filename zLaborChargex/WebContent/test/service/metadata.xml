@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+	xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:Reference
+		Uri="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='RPD300')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Namespace="Org.OData.Capabilities.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='RPD300')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Namespace="Org.OData.Core.V1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='RPD300')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Namespace="com.sap.vocabularies.Common.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='RPD300')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Namespace="com.sap.vocabularies.Communication.v1" />
+	</edmx:Reference>
+	<edmx:Reference
+		Uri="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='RPD300')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+		<edmx:Include Namespace="com.sap.vocabularies.UI.v1" />
+	</edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="Z_LCC_SRV" xml:lang="en" sap:schema-version="1"
+			xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="laborCharge" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="ChargeCode" />
+				</Key>
+				<Property Name="Werks" Type="Edm.String" Nullable="false"
+					MaxLength="4" sap:label="Plant" />
+				<Property Name="ChargeCode" Type="Edm.String" Nullable="false"
+					MaxLength="40" sap:label="Charge Code" />
+				<Property Name="WorkCenter" Type="Edm.String" Nullable="false"
+					MaxLength="8" sap:label="Work center" />
+				<Property Name="CostCenter" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="Cost Center" />
+				<Property Name="ChargeDescr" Type="Edm.String" Nullable="false"
+					MaxLength="100" sap:label="Description" />
+			</EntityType>
+			<EntityType Name="sh_werks" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Werks" />
+				</Key>
+				<Property Name="Werks" Type="Edm.String" Nullable="false"
+					MaxLength="4" sap:label="Plant" />
+				<Property Name="Name1" Type="Edm.String" Nullable="false"
+					MaxLength="30" sap:label="Name 1" />
+			</EntityType>
+			<EntityType Name="sh_WorkCtr" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Arbpl" />
+				</Key>
+				<Property Name="Arbpl" Type="Edm.String" Nullable="false"
+					MaxLength="8" sap:label="Work center" />
+				<Property Name="Werks" Type="Edm.String" Nullable="false"
+					MaxLength="4" sap:label="Plant" />
+				<Property Name="Ktext" Type="Edm.String" Nullable="false"
+					MaxLength="40" sap:label="Description" />
+			</EntityType>
+			<EntityType Name="sh_CostCtr" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Kostl" />
+				</Key>
+				<Property Name="Kostl" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="Cost Center" />
+				<Property Name="Werks" Type="Edm.String" Nullable="false"
+					MaxLength="4" sap:label="Plant" />
+				<Property Name="Ltext" Type="Edm.String" Nullable="false"
+					MaxLength="40" sap:label="Description" />
+			</EntityType>
+			<EntityType Name="timeCard" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="Trancode" />
+				</Key>
+				<Property Name="Trancode" Type="Edm.String" Nullable="false"
+					MaxLength="12" sap:label="TransCode" />
+				<Property Name="Empno" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="EmpNo" />
+				<Property Name="Trandate" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="TransDate" />
+				<Property Name="Trantime" Type="Edm.String" Nullable="false"
+					MaxLength="8" sap:label="TransTime" />
+				<Property Name="Kostl" Type="Edm.String" Nullable="false"
+					MaxLength="10" sap:label="VM Cost Center" />
+			</EntityType>
+			<EntityContainer Name="Z_LCC_SRV_Entities"
+				m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+				<EntitySet Name="laborChargeSet" EntityType="Z_LCC_SRV.laborCharge"
+					sap:content-version="1" />
+				<EntitySet Name="sh_werksSet" EntityType="Z_LCC_SRV.sh_werks"
+					sap:content-version="1" />
+				<EntitySet Name="sh_WorkCtrSet" EntityType="Z_LCC_SRV.sh_WorkCtr"
+					sap:content-version="1" />
+				<EntitySet Name="sh_CostCtrSet" EntityType="Z_LCC_SRV.sh_CostCtr"
+					sap:content-version="1" />
+				<EntitySet Name="timeCardSet" EntityType="Z_LCC_SRV.timeCard"
+					sap:content-version="1" />
+			</EntityContainer>
+			<Annotations Target="Z_LCC_SRV.laborChargeSet"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Org.OData.Capabilities.V1.FilterFunctions">
+					<Collection>
+						<Path>Werks</Path>
+						<Path>CostCenter</Path>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.laborCharge"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+					<Collection>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Label" String="Charge Code" />
+							<PropertyValue Property="Value" Path="ChargeCode" />
+						</Record>
+						<Record Type="com.sap.vocabularies.UI.v1.DataField">
+							<PropertyValue Property="Label" String="Description" />
+							<PropertyValue Property="Value" Path="ChargeDescr" />
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.laborCharge"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+					<Collection>
+						<PropertyPath>Werks</PropertyPath>
+						<PropertyPath>CostCenter</PropertyPath>
+						<PropertyPath>WorkCenter</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.laborChargeSet"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Org.OData.Capabilities.V1.FilterRestrictions">
+					<Record Type="Org.OData.Capabilities.V1.FilterRestrictionsType">
+						<PropertyValue Property="Filterable" Bool="true" />
+						<PropertyValue Property="RequiresFilter" Bool="true" />
+						<PropertyValue Property="RequiredProperties">
+							<Collection>
+								<PropertyPath>Werks</PropertyPath>
+								<PropertyPath>CostCenter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>ChargeCode</PropertyPath>
+								<PropertyPath>ChargeDescr</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.sh_WorkCtrSet"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Org.OData.Capabilities.V1.FilterRestrictions">
+					<Record Type="Org.OData.Capabilities.V1.FilterRestrictionsType">
+						<PropertyValue Property="Filterable" Bool="false" />
+						<PropertyValue Property="RequiresFilter" Bool="true" />
+						<PropertyValue Property="RequiredProperties">
+							<Collection />
+						</PropertyValue>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection />
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.laborCharge/Werks"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+						<PropertyValue Property="Label" String="Plant" />
+						<PropertyValue Property="CollectionPath" String="sh_werksSet" />
+						<PropertyValue Property="CollectionRoot" String="" />
+						<PropertyValue Property="SearchSupported" Bool="false" />
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="ValueListProperty"
+										String="Werks" />
+									<PropertyValue Property="LocalDataProperty"
+										PropertyPath="Werks" />
+								</Record>
+								<Record
+									Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty"
+										String="Name1" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.laborCharge/CostCenter"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+						<PropertyValue Property="Label" String="Cost Center" />
+						<PropertyValue Property="CollectionPath" String="sh_CostCtrSet" />
+						<PropertyValue Property="CollectionRoot" String="" />
+						<PropertyValue Property="SearchSupported" Bool="false" />
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="ValueListProperty"
+										String="Kostl" />
+									<PropertyValue Property="LocalDataProperty"
+										PropertyPath="CostCenter" />
+								</Record>
+								<Record
+									Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty"
+										String="Ltext" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.laborCharge/WorkCenter"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record Type="com.sap.vocabularies.Common.v1.ValueListType">
+						<PropertyValue Property="Label" String="Work center" />
+						<PropertyValue Property="CollectionPath" String="sh_WorkCtrSet" />
+						<PropertyValue Property="CollectionRoot" String="" />
+						<PropertyValue Property="SearchSupported" Bool="false" />
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+									<PropertyValue Property="ValueListProperty"
+										String="Arbpl" />
+									<PropertyValue Property="LocalDataProperty"
+										PropertyPath="WorkCenter" />
+								</Record>
+								<Record
+									Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty"
+										String="Ktext" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Z_LCC_SRV.sh_CostCtrSet"
+				xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Org.OData.Capabilities.V1.FilterRestrictions">
+					<Record Type="Org.OData.Capabilities.V1.FilterRestrictionsType">
+						<PropertyValue Property="Filterable" Bool="false" />
+						<PropertyValue Property="RequiresFilter" Bool="true" />
+						<PropertyValue Property="RequiredProperties">
+							<Collection />
+						</PropertyValue>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection />
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<atom:link rel="self"
+				href="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+			<atom:link rel="latest-version"
+				href="http://ERPFCD.APEX.RAY.COM:80/sap/opu/odata/sap/Z_LCC_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom" />
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
